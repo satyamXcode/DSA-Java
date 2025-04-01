@@ -79,6 +79,10 @@ public class LinkedListWithCycle {
         } else {
             System.out.println("No cycle detected");
         }
+         
+        // Print linked list node after cycle remove
+        System.out.println("Linked list with cycle (first few nodes):");
+        printLinkedList(head, 10);
     }
     
     // Bonus: Method to find where the cycle starts
@@ -104,11 +108,15 @@ public class LinkedListWithCycle {
         
         // Find the start of the cycle
         slow = head;
+        // Logic to remove the cycle
+        ListNode prev = null;
         while (slow != fast) {
             slow = slow.next;
+            prev = fast;
             fast = fast.next;
         }
         
+        prev.next = null;
         return slow;
     }
 }
