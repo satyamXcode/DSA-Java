@@ -146,6 +146,19 @@ public class CreateLinkedList {
         head = prevNode;
     }
 
+    public Node reverseRecursive(Node head){
+        //edge case
+        if(head == null || head.next == null){
+            return head;
+        }
+
+        Node newHead = reverseRecursive(head.next);
+        head.next.next = head;
+        head.next = null;
+
+        return newHead;
+    }
+
     public static void main(String args[]){
         CreateLinkedList ll = new CreateLinkedList();
         ll.addFirst(2);
@@ -174,7 +187,8 @@ public class CreateLinkedList {
         // System.out.println(size);
 
         ll.print();
-        ll.reverseIterate();
+        //ll.reverseIterate();
+        ll.head = ll.reverseRecursive(ll.head);
         ll.print();
 
     }
