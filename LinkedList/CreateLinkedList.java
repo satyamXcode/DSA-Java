@@ -124,30 +124,58 @@ public class CreateLinkedList {
         System.out.println("null");
     }
 
+    public void reverseIterate(){
+        //edge case
+        if(head == null || head.next == null){
+            return;
+        }
+
+        Node prevNode = head;
+        Node currNode = head.next;
+
+        while(currNode != null){
+            Node nextNode = currNode.next;
+            currNode.next = prevNode;
+
+            //update
+            prevNode = currNode;
+            currNode = nextNode;
+        }
+
+        head.next = null;
+        head = prevNode;
+    }
+
     public static void main(String args[]){
         CreateLinkedList ll = new CreateLinkedList();
         ll.addFirst(2);
         ll.addFirst(1);
         ll.addLast(3);
-        ll.print();
-        System.out.println(size);
-        ll.removeFirst();
-        ll.print();
-        System.out.println(size);
-        ll.removeLast();
-        ll.print();
-        System.out.println(size);
         ll.addLast(4);
+        ll.addLast(5);
+        // ll.print();
+        // System.out.println(size);
+        // ll.removeFirst();
+        // ll.print();
+        // System.out.println(size);
+        // ll.removeLast();
+        // ll.print();
+        // System.out.println(size);
+        // ll.addLast(4);
+        // ll.print();
+        // System.out.println(size);
+        // ll.add(1,3);
+        // ll.print();
+        // System.out.println(size);
+        // ll.removeFirst();
+        // ll.removeLast();
+        // ll.removeFirst();
+        // ll.print();
+        // System.out.println(size);
+
         ll.print();
-        System.out.println(size);
-        ll.add(1,3);
+        ll.reverseIterate();
         ll.print();
-        System.out.println(size);
-        ll.removeFirst();
-        ll.removeLast();
-        ll.removeFirst();
-        ll.print();
-        System.out.println(size);
 
     }
 }
