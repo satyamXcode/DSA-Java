@@ -1,5 +1,3 @@
-import java.util.*;
-
 public class RemoveNthNode {
     public static ListNode removeNthFromEnd(ListNode head, int n) {
         // Edge case: empty list or single node being removed
