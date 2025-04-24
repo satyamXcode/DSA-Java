@@ -1,3 +1,5 @@
+// Brute force Approach :: TC : O(n) && SC : O(n)
+
 // Definition for singly-linked list.
 class ListNode {
     int val;
